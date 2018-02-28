@@ -1,0 +1,17 @@
+<button {{action 'recomputeProp'}}>Recompute Property</button>
+
+{{#mapbox-gl
+  id='map'
+  initOptions=(hash style='mapbox://styles/mapbox/light-v9'
+                    zoom=zoom
+                    center=center)
+  mapLoaded=(action 'handleMapLoad')
+  as |map|}}
+
+  {{#each builtLayers as |unused|}}
+    {{log unused}} 
+    {{map.layer layer=testLayer before='waterway-label'}}
+  {{/each}}
+{{/mapbox-gl}}
+
+
